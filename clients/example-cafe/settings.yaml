@@ -1,0 +1,39 @@
+# EXAMPLE ONLY: a made-up café for testing. Replace or delete before going live.
+
+whatsapp_phone_number_id: "TEST_CAFE_NUMBER_ID"
+staff_whatsapp: ""
+
+business: Kava Bowl Café
+industry: cafe
+location: Victoria Parade, Suva (opposite the library)
+phone: "+679 000 0000"
+hours:
+  monday_to_saturday: 7am - 4pm
+  sunday: closed
+tone: friendly and short; greet with "Bula"; thank with "Vinaka"
+
+menu:
+  - item: Lovo chicken plate
+    price: FJD 18
+  - item: Rourou soup
+    price: FJD 9
+    notes: vegetarian
+  - item: Kokoda
+    price: FJD 16
+  - item: Fiji coffee
+    price: FJD 5
+
+services:
+  dine_in: true
+  takeaway: true
+  delivery: Within Suva on orders over FJD 30
+  table_bookings: yes - staff confirm by message
+payment_methods: [cash, EFTPOS, M-PAiSA]
+
+faqs:
+  - q: Is there parking?
+    a: Street parking on Victoria Parade; the Civic car park is a 2-minute walk.
+
+never_say:
+  - Prices or dishes not listed above
+  - That an order or table is confirmed (staff confirm)

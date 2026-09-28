@@ -1,0 +1,51 @@
+# CAFÉ / RESTAURANT TEMPLATE
+# Copy this file to clients/<business-name>/settings.yaml and fill it in.
+# Lines starting with # are notes for you; the bot ignores them.
+# Anything you write below (except the two "program" settings) is what the bot knows.
+# If something isn't in this file, the bot will NOT make it up; it hands over to staff.
+
+# --- Program settings (not shown to customers) ---
+whatsapp_phone_number_id: "PASTE_FROM_META"   # Meta > WhatsApp > API Setup > Phone number ID
+staff_whatsapp: "679XXXXXXX"                   # staff number for alerts, country code first, no +
+
+# --- About the business ---
+business: Business Name
+industry: cafe
+location: Street, Town (landmark nearby)
+phone: "+679 XXX XXXX"
+hours:
+  monday_to_friday: 7am - 4pm
+  saturday: 8am - 2pm
+  sunday: closed
+  public_holidays: check with staff
+tone: friendly and short; greet with "Bula"; thank with "Vinaka"
+
+menu:
+  # name: price in FJD (add notes like "vegetarian" or "Fridays only")
+  - item: Example dish
+    price: FJD 15
+    notes: ""
+
+services:
+  dine_in: true
+  takeaway: true
+  delivery: "Describe area and minimum order, or write: no delivery"
+  table_bookings: "yes - staff confirm by message"
+payment_methods: [cash, EFTPOS, M-PAiSA]
+
+faqs:
+  - q: Do you have vegetarian options?
+    a: Yes, ...
+  - q: Is there parking?
+    a: ...
+
+# Phrases a local speaker has checked, so the bot sounds natural.
+phrases:
+  itaukei:
+    welcome: "Bula vinaka! ..."
+  fiji_hindi:
+    welcome: "..."
+
+never_say:
+  - Prices or dishes not listed above
+  - Promises that an order or table is confirmed (staff confirm)
