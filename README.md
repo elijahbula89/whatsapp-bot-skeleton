@@ -1,6 +1,6 @@
 # WhatsApp Bot Skeleton
 
-One AI WhatsApp bot that you can reuse for many small businesses in Fiji. It answers customers in **English, iTaukei and Fiji Hindi** and passes bookings, orders and complaints to staff.
+One AI WhatsApp bot that you can reuse for many small businesses in Fiji. It answers customers in **English** (iTaukei and Fiji Hindi are planned for later) and passes bookings, orders and complaints to staff.
 
 ## How it works
 
