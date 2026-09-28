@@ -1,6 +1,7 @@
 # EXAMPLE ONLY: a made-up café for testing. Replace or delete before going live.
 
-whatsapp_phone_number_id: "TEST_CAFE_NUMBER_ID"
+# Meta test number (+1 555 143 1605)
+whatsapp_phone_number_id: "1314632248404429"
 staff_whatsapp: ""
 
 business: Kava Bowl Café
