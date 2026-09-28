@@ -1,6 +1,6 @@
 """Send a fixed set of test questions to the example bots and print the replies.
 
-Needs ANTHROPIC_API_KEY. Usage:
+Needs ANTHROPIC_API_KEY (or BOT_ANTHROPIC_API_KEY). Usage:
     python -m scripts.live_test > live-test-results.md
 Each question is a fresh chat, so replies don't lean on earlier answers.
 """
@@ -34,7 +34,7 @@ QUESTIONS = {
 def main() -> None:
     config = load_config()
     if not config.anthropic_api_key:
-        raise SystemExit("Set ANTHROPIC_API_KEY first (see .env.example).")
+        raise SystemExit("Set ANTHROPIC_API_KEY or BOT_ANTHROPIC_API_KEY first (see .env.example).")
     brain = Brain(config.anthropic_api_key, config.model)
     for slug, questions in QUESTIONS.items():
         client = load_client(config.clients_dir / slug)
