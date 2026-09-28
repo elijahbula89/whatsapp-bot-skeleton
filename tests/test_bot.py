@@ -150,6 +150,16 @@ def test_brain_staff_handover():
     assert fake.calls[1]["messages"][-1]["content"][0]["type"] == "tool_result"
 
 
+def test_brain_keeps_reply_written_before_staff_handover():
+    first = tool_response()
+    first.content.insert(0, SimpleNamespace(type="text", text="Sorry Mere, we close at 4pm. Staff will message you."))
+    fake = FakeClaude([first])
+    result = make_brain(fake).reply(load_client(CLIENTS / "example-cafe"), [], "Table for 4 Saturday 7pm")
+    assert result.text == "Sorry Mere, we close at 4pm. Staff will message you."
+    assert result.staff_notes == [StaffNote("booking", "Table for 4 Friday 12pm", "Mere")]
+    assert len(fake.calls) == 1
+
+
 def test_brain_falls_back_on_empty_reply():
     fake = FakeClaude([text_response("  ")])
     assert make_brain(fake).reply(load_client(CLIENTS / "example-cafe"), [], "hi").text == FALLBACK_REPLY

@@ -79,8 +79,8 @@ class Brain:
                 log.exception("Claude request failed for %s", client.slug)
                 return BotReply(FALLBACK_REPLY, notes)
 
+            text = "".join(b.text for b in response.content if b.type == "text").strip()
             if response.stop_reason != "tool_use":
-                text = "".join(b.text for b in response.content if b.type == "text").strip()
                 return BotReply(text or FALLBACK_REPLY, notes)
 
             tool_results = []
@@ -94,6 +94,10 @@ class Brain:
                 else:
                     result = {"type": "tool_result", "tool_use_id": block.id, "content": "Unknown tool.", "is_error": True}
                 tool_results.append(result)
+            if text:
+                # Claude already wrote the customer's reply before calling the tool; send that
+                # rather than asking again, which would drop it or add a second message.
+                return BotReply(text, notes)
             messages += [{"role": "assistant", "content": response.content}, {"role": "user", "content": tool_results}]
 
         log.warning("Too many tool rounds for %s", client.slug)

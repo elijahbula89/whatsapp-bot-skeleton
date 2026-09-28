@@ -1,6 +1,6 @@
 """Chat with a client's bot in your terminal, without WhatsApp.
 
-Needs ANTHROPIC_API_KEY. Usage:
+Needs ANTHROPIC_API_KEY (or BOT_ANTHROPIC_API_KEY). Usage:
     python -m app.chat example-cafe
 Type 'quit' to stop.
 """
@@ -18,7 +18,7 @@ def main() -> None:
         sys.exit(1)
     config = load_config()
     if not config.anthropic_api_key:
-        print("Set ANTHROPIC_API_KEY first (see .env.example).")
+        print("Set ANTHROPIC_API_KEY or BOT_ANTHROPIC_API_KEY first (see .env.example).")
         sys.exit(1)
     client = load_client(config.clients_dir / sys.argv[1])
     brain = Brain(config.anthropic_api_key, config.model)

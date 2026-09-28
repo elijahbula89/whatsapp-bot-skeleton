@@ -25,7 +25,8 @@ def load_config() -> Config:
         app_secret=os.environ.get("WHATSAPP_APP_SECRET", ""),
         access_token=os.environ.get("WHATSAPP_ACCESS_TOKEN", ""),
         graph_api_version=os.environ.get("WHATSAPP_GRAPH_VERSION", "v23.0"),
-        anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY", ""),
+        # Claude Code cloud settings keep ANTHROPIC_API_KEY for themselves, so BOT_ANTHROPIC_API_KEY works too
+        anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("BOT_ANTHROPIC_API_KEY", ""),
         model=os.environ.get("CLAUDE_MODEL", "claude-sonnet-5"),
         clients_dir=Path(os.environ.get("CLIENTS_DIR", Path(__file__).resolve().parent.parent / "clients")),
     )
