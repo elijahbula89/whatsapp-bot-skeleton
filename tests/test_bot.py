@@ -21,7 +21,7 @@ CLIENTS = ROOT / "clients"
 SECRET = "test-secret"
 
 
-def webhook_payload(text="Bula, are you open Sunday?", phone_number_id="TEST_CAFE_NUMBER_ID", msg_id="wamid.1"):
+def webhook_payload(text="Bula, are you open Sunday?", phone_number_id="1314632248404429", msg_id="wamid.1"):
     return {
         "object": "whatsapp_business_account",
         "entry": [{"changes": [{"value": {
@@ -69,7 +69,7 @@ def test_prompt_has_business_facts_but_not_program_settings():
     client = load_client(CLIENTS / "example-cafe")
     prompt = build_system_prompt(client)
     assert "Lovo chicken plate" in prompt and "iTaukei" in prompt
-    assert "TEST_CAFE_NUMBER_ID" not in prompt
+    assert "1314632248404429" not in prompt
 
 
 # --- WhatsApp messages ---
@@ -203,7 +203,7 @@ def test_message_gets_reply_once(server):
     body = json.dumps(webhook_payload("Hi")).encode()
     assert http.post("/webhook", content=body, headers=signed(body)).status_code == 200
     assert http.post("/webhook", content=body, headers=signed(body)).status_code == 200  # Meta retry
-    assert sender.sent == [("TEST_CAFE_NUMBER_ID", "6799990000", "reply to: Hi")]  # no staff number set
+    assert sender.sent == [("1314632248404429", "6799990000", "reply to: Hi")]  # no staff number set
 
 
 def test_unsigned_message_rejected(server):
