@@ -1,0 +1,39 @@
+# EXAMPLE ONLY: a made-up backpackers for testing. Replace or delete before going live.
+
+whatsapp_phone_number_id: "TEST_HOSTEL_NUMBER_ID"
+staff_whatsapp: ""
+
+business: Coral Coast Backpackers
+industry: hostel / backpackers accommodation
+location: Queens Road, Sigatoka (45 minutes by bus from Nadi)
+phone: "+679 000 0000"
+tone: warm, relaxed and helpful; greet with "Bula"
+check_in: 2pm
+check_out: 10am
+reception_hours: 7am - 9pm
+
+rooms:
+  - type: Dorm bed (8-bed mixed)
+    price: FJD 40 per night
+    includes: linen, locker, breakfast
+  - type: Private double
+    price: FJD 120 per night
+    includes: breakfast
+
+bookings: Ask for dates, number of guests and room type, then staff confirm availability and payment.
+deposit_and_cancellation: 1 night deposit; free cancellation up to 48 hours before arrival.
+
+extras:
+  airport_transfer: FJD 35 per person from Nadi airport, book 24 hours ahead
+  activities:
+    - name: Reef snorkelling trip
+      price: FJD 60
+      notes: Daily at 9am, weather permitting
+  meals: Breakfast included; dinner FJD 20, 6pm - 8pm
+  wifi: Free in common areas
+
+payment_methods: [cash, card, bank transfer]
+
+never_say:
+  - That a room is available or a booking is confirmed (staff check and confirm)
+  - Prices not listed above

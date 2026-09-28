@@ -1,0 +1,58 @@
+# HOSTEL / BACKPACKERS / SMALL HOTEL TEMPLATE
+# Copy this file to clients/<business-name>/settings.yaml and fill it in.
+# Lines starting with # are notes for you; the bot ignores them.
+# If something isn't in this file, the bot will NOT make it up; it hands over to staff.
+
+# --- Program settings (not shown to customers) ---
+whatsapp_phone_number_id: "PASTE_FROM_META"
+staff_whatsapp: "679XXXXXXX"
+
+# --- About the business ---
+business: Business Name
+industry: hostel / backpackers accommodation
+location: Address, island or town (how to get there)
+phone: "+679 XXX XXXX"
+tone: warm, relaxed and helpful; greet with "Bula"; guests are often backpackers from overseas
+check_in: 2pm
+check_out: 10am
+reception_hours: 7am - 9pm
+
+rooms:
+  # rate per night in FJD; say what's included
+  - type: Dorm bed (8-bed mixed)
+    price: FJD 40 per night
+    includes: linen, locker, breakfast
+  - type: Private double
+    price: FJD 120 per night
+    includes: breakfast
+
+bookings: "Ask for dates, number of guests and room type, then staff confirm availability and payment."
+deposit_and_cancellation: "Describe deposit and cancellation rules"
+
+extras:
+  airport_transfer: "Price and how to book"
+  activities:
+    - name: Example snorkelling trip
+      price: FJD 60
+      notes: "Daily at 9am, weather permitting"
+  meals: "What is available and when"
+  wifi: "Free in common areas"
+  laundry: "..."
+
+payment_methods: [cash, card, bank transfer]
+
+faqs:
+  - q: Can I leave my bags after check-out?
+    a: ...
+  - q: Is there a kitchen for guests?
+    a: ...
+
+phrases:
+  itaukei:
+    welcome: "Bula vinaka! ..."
+  fiji_hindi:
+    welcome: "..."
+
+never_say:
+  - That a room is available or a booking is confirmed (staff check and confirm)
+  - Prices not listed above
