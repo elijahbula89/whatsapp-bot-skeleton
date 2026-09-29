@@ -1,0 +1,22 @@
+# Render setup: tells render.com how to run the bot.
+# In Render, choose New > Blueprint and pick this repo. Render asks you for
+# each secret below (sync: false) and never stores them in GitHub.
+services:
+  - type: web
+    name: whatsapp-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:create_app --factory --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: BOT_ANTHROPIC_API_KEY
+        sync: false
+      - key: WHATSAPP_ACCESS_TOKEN
+        sync: false
+      - key: WHATSAPP_APP_SECRET
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        sync: false
