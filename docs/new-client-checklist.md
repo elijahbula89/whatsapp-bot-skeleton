@@ -1,11 +1,20 @@
 # Adding a new client
 
-1. **Make their folder.** Copy the right template into a new folder named after the business:
-   `templates/cafe.yaml` → `clients/bula-bites-cafe/settings.yaml`
-2. **Fill it in with the owner.** Menu or rooms with prices, hours, FAQs, how bookings work, payment methods. Anything left out, the bot will not answer; it hands those questions to staff.
-3. **Get their language phrases checked.** Ask your iTaukei and Fiji Hindi testers for a greeting and a few common replies, and add them under `phrases:`.
-4. **Test in your terminal** (no WhatsApp needed): `python -m app.chat bula-bites-cafe`. Send about 20 real questions in each language. Fix the settings file wherever an answer is wrong.
-5. **Connect their WhatsApp number in Meta.** The business completes Meta business verification, then adds their number to the WhatsApp app in Meta. Copy the **Phone number ID** into `whatsapp_phone_number_id`.
-6. **Set the staff alert number** in `staff_whatsapp`, starting with the country code and no + (for example `6799123456`).
-7. **Restart the bot** so it loads the new folder. The log line `Loaded N client(s)` should include them.
-8. **Send a test message from your own phone**, then hand over to the client.
+Full guide with the Meta clicks: https://claude.ai/artifact/E87p9KFD2s6UYwTZ6xwNky
+
+**Once only, before the first real client:** a permanent System User access token in Render (`WHATSAPP_ACCESS_TOKEN`), Render on a paid plan so the bot never sleeps, and an approved staff-alert message template.
+
+1. **First meeting.** Copy the right template into a new folder named after the business
+   (`templates/cafe.yaml` → `clients/bula-bites-cafe/settings.yaml`) and fill it in with the owner:
+   menu or rooms with prices, hours, FAQs, how bookings work, payment methods, staff alert number.
+   Anything left out, the bot will not answer; it hands those questions to staff.
+2. **Phone number.** Use a number that is not on the normal WhatsApp app (a new SIM is easiest).
+3. **Client's Meta account.** The business creates a Meta business portfolio, starts business
+   verification, adds the number in WhatsApp Manager, and shares the WhatsApp account with you as a partner.
+4. **Connect it.** Give your System User access to their WhatsApp account, then in Graph API Explorer
+   send `POST <their WhatsApp Business Account ID>/subscribed_apps`. Put their **Phone number ID**
+   into `whatsapp_phone_number_id` and the staff number (country code first, no +) into `staff_whatsapp`.
+5. **Test** in your terminal (no WhatsApp needed): `python -m app.chat bula-bites-cafe`.
+   Send about 20 real questions and fix the settings file wherever an answer is wrong.
+6. **Go live.** Merge the change; Render restarts and the log line `Loaded N client(s)` should include them.
+   Message the number from your own phone, test a booking alert, then hand over to the owner.
